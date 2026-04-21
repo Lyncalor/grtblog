@@ -29,7 +29,7 @@
 
 <a
 	href={resolvePath(buildPostPath(post.shortUrl))}
-	class="group relative flex flex-col gap-3 px-4 py-4 sm:px-6 sm:py-6 border-b border-ink-100/50 dark:border-ink-800/50 last:border-0 w-full outline-none"
+	class="article-archive-card group relative flex flex-col gap-3 px-4 py-4 sm:px-6 sm:py-6 border-b border-slate-500/10 last:border-0 w-full outline-none"
 >
 	<!-- Title -->
 	<h2
@@ -109,3 +109,23 @@
 		</div>
 	</div>
 </a>
+
+<style lang="postcss">
+	@reference "$routes/layout.css";
+
+	.article-archive-card {
+		background: linear-gradient(180deg, rgba(11, 16, 23, 0.72), rgba(8, 12, 18, 0.88));
+		border-left: 1px solid rgba(125, 211, 252, 0.06);
+		border-right: 1px solid rgba(125, 211, 252, 0.06);
+		transition:
+			transform 260ms ease,
+			border-color 220ms ease,
+			box-shadow 260ms ease;
+	}
+
+	.article-archive-card:hover {
+		transform: translateX(4px);
+		border-color: rgba(125, 211, 252, 0.18);
+		box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.72);
+	}
+</style>

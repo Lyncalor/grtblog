@@ -154,7 +154,7 @@
 	}
 </script>
 
-<section class="mt-20 md:mt-32">
+<section class="mt-20 md:mt-32 home-inspiration-shell">
 	<SlideIn direction="up">
 		<div class="flex items-center gap-3 mb-10 border-b border-ink-100 dark:border-ink-800 pb-4">
 			<span class="h-px w-8 bg-jade-500/40"></span>
@@ -168,7 +168,7 @@
 		class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[120px]"
 	>
 		<div
-			class="col-span-1 md:col-span-3 lg:col-span-3 row-span-2 bento-card p-8 flex flex-col justify-center relative overflow-hidden group"
+			class="col-span-1 md:col-span-3 lg:col-span-3 row-span-2 bento-card p-8 flex flex-col justify-center relative overflow-hidden group" data-terminal-card
 		>
 			<Quote
 				class="absolute -top-4 -left-4 w-24 h-24 text-ink-100 dark:text-ink-800/50 -rotate-12 transition-transform group-hover:rotate-0 duration-700"
@@ -185,7 +185,7 @@
 		</div>
 
 		<div
-			class="col-span-1 md:col-span-1 lg:col-span-2 row-span-2 bento-card p-6 flex flex-col gap-6"
+			class="col-span-1 md:col-span-1 lg:col-span-2 row-span-2 bento-card p-6 flex flex-col gap-6" data-terminal-card
 		>
 			<div
 				class="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-jade-600 dark:text-jade-400"
@@ -214,7 +214,7 @@
 		</div>
 
 		<div
-			class="col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bento-card flex items-center justify-center group"
+			class="col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bento-card flex items-center justify-center group" data-terminal-card
 		>
 			{#if energyIcon}
 				{@const EnergyIcon = energyIcon}
@@ -231,7 +231,7 @@
 		{#each statItems as stat (stat.id)}
 			{@const StatIcon = resolveIcon(stat.icon, Library)}
 			<div
-				class="col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bento-card p-4 flex flex-col justify-between hover:border-jade-200 dark:hover:border-jade-900/50 transition-colors"
+				class="col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bento-card p-4 flex flex-col justify-between hover:border-sky-300/30 transition-colors" data-terminal-card
 			>
 				<StatIcon size={18} class="text-ink-400" />
 				<div>
@@ -250,7 +250,7 @@
 		{/each}
 
 		<div
-			class="col-span-1 md:col-span-2 lg:col-span-3 row-span-1 bento-card px-6 flex items-center justify-between overflow-hidden relative"
+			class="col-span-1 md:col-span-2 lg:col-span-3 row-span-1 bento-card px-6 flex items-center justify-between overflow-hidden relative" data-terminal-card
 		>
 			<div class="flex flex-col">
 				<div class="text-[10px] font-mono text-ink-400 uppercase mb-1">{techTitle}</div>
@@ -282,6 +282,17 @@
 		@apply relative z-0 rounded-default border border-ink-200/80 bg-ink-50 transition-all duration-500 hover:shadow-glass dark:border-ink-800 dark:bg-ink-900/50 dark:hover:shadow-glass-dark;
 	}
 
+	.home-inspiration-shell :global([data-terminal-card]) {
+		border-color: rgba(148, 163, 184, 0.12);
+		background:
+			linear-gradient(180deg, rgba(15, 23, 32, 0.88), rgba(9, 13, 18, 0.92)),
+			radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 34%);
+		box-shadow:
+			inset 0 1px 0 rgba(255, 255, 255, 0.03),
+			0 18px 40px -24px rgba(0, 0, 0, 0.75);
+		backdrop-filter: blur(18px);
+	}
+
 	.bento-card::after {
 		content: '';
 		@apply pointer-events-none absolute inset-0 -z-10 rounded-default opacity-20;
@@ -296,5 +307,13 @@
 
 	.bento-card:hover {
 		@apply -translate-y-1 border-ink-200 dark:border-ink-700;
+	}
+
+	.home-inspiration-shell :global([data-terminal-card]::before) {
+		content: '';
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background: linear-gradient(180deg, rgba(148, 163, 184, 0.05), transparent 24%);
 	}
 </style>

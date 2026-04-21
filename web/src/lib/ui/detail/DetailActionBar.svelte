@@ -45,7 +45,7 @@
 </script>
 
 <div
-	class="mt-12 flex items-center justify-center gap-6 border-t border-b border-ink-200/50 py-5 dark:border-ink-700/30"
+	class="detail-action-shell mt-12 flex items-center justify-center gap-6 border-t border-b border-slate-500/20 py-5"
 >
 	<ContentLikeButton
 		{contentType}
@@ -76,3 +76,11 @@
 		<span>分享</span>
 	</button>
 </div>
+
+<style lang="postcss">
+	@reference "$routes/layout.css";
+
+	.detail-action-shell {
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(56, 189, 248, 0.03), rgba(255, 255, 255, 0.01));
+	}
+</style>

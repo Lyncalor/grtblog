@@ -24,18 +24,11 @@
 </script>
 
 <div
-	class="
-		bg-transparent border-0 shadow-none rounded-none
-		md:bg-ink-50 dark:md:bg-ink-900
-		md:shadow-[0_4px_30px_-8px_rgba(0,0,0,0.06)] dark:md:shadow-none
-		md:border md:border-ink-200/80 dark:md:border-ink-200/10
-		px-0 py-10 md:p-20 md:rounded-sm relative overflow-hidden md:min-h-[80vh]
-		moment-vt
-	"
+	class="moment-detail-shell px-0 py-10 md:p-20 relative overflow-hidden md:min-h-[80vh] moment-vt"
 	style:view-transition-name={`moment-${moment.id}`}
 >
 	<div class="relative z-10">
-		<header class="mb-12 flex flex-col gap-6">
+		<header class="moment-head-shell mb-12 flex flex-col gap-6 px-6 py-8 md:px-8 md:py-10">
 			<div class="flex items-start justify-between gap-3 border-b border-ink-800/10 pb-4">
 				<div
 					class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono text-ink-800/40 dark:text-ink-200/40"
@@ -101,12 +94,12 @@
 			tone="cinnabar"
 		/>
 
-		<div class="mt-24 flex justify-center opacity-40">
+		<div class="mt-24 flex justify-center opacity-60">
 			<div
-				class="w-24 h-24 border-2 border-dashed border-ink-800 dark:border-ink-200 rounded-full flex items-center justify-center rotate-12"
+				class="w-24 h-24 border border-pink-300/30 rounded-full flex items-center justify-center rotate-12 bg-pink-400/[0.03]"
 			>
-				<div class="text-center text-ink-800 dark:text-ink-200">
-					<div class="text-[9px] uppercase tracking-widest mb-1">手记</div>
+				<div class="text-center text-pink-100">
+					<div class="text-[9px] uppercase tracking-widest mb-1">LOG</div>
 					<div class="font-serif font-bold text-lg">记</div>
 					<div class="text-[9px] mt-1">{dateStr}</div>
 				</div>
@@ -124,3 +117,41 @@
 		/>
 	</div>
 </div>
+
+<style lang="postcss">
+	@reference "$routes/layout.css";
+
+	.moment-detail-shell {
+		background: transparent;
+		border: 0;
+		box-shadow: none;
+		border-radius: 0;
+	}
+
+	@media (min-width: 768px) {
+		.moment-detail-shell {
+			background:
+				linear-gradient(180deg, rgba(10, 16, 23, 0.88), rgba(7, 10, 15, 0.96)),
+				radial-gradient(circle at top left, rgba(244, 114, 182, 0.08), transparent 34%);
+			border: 1px solid rgba(148, 163, 184, 0.12);
+			box-shadow: 0 28px 56px -28px rgba(0, 0, 0, 0.82);
+			border-radius: 2px;
+		}
+
+		.moment-detail-shell::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			pointer-events: none;
+			background-image: linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+			background-size: 100% 24px;
+			opacity: 0.18;
+		}
+		.moment-head-shell {
+			border: 1px solid rgba(148, 163, 184, 0.12);
+			background:
+				linear-gradient(180deg, rgba(10, 16, 23, 0.82), rgba(7, 10, 15, 0.94)),
+				radial-gradient(circle at top left, rgba(244, 114, 182, 0.12), transparent 34%);
+		}
+	}
+</style>

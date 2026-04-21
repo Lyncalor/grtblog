@@ -29,7 +29,7 @@
 </script>
 
 <div class="grid gap-10 lg:grid-cols-[1fr_220px] lg:gap-16">
-	<main class="min-w-0">
+	<main class="post-detail-main-shell min-w-0 px-6 py-8 md:px-8 md:py-10">
 		{#if $aiSummaryStore}
 			<PostDetailAiSummary summary={$aiSummaryStore} />
 		{/if}
@@ -60,3 +60,13 @@
 		onAnchorChange={handleActiveAnchorChange}
 	/>
 </div>
+
+<style lang="postcss">
+	@reference "$routes/layout.css";
+
+	.post-detail-main-shell {
+		border: 1px solid rgba(148, 163, 184, 0.1);
+		background: linear-gradient(180deg, rgba(9, 13, 18, 0.88), rgba(6, 9, 14, 0.96));
+		box-shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.78);
+	}
+</style>

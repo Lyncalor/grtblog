@@ -97,14 +97,19 @@
 
 /* Base Styles */
 body {
-	background-color: var(--color-ink-50);
-	color: var(--color-ink-900);
+	background-color: #090d12;
+	color: #d5dbe3;
 	-webkit-font-smoothing: antialiased;
+	background-image:
+		radial-gradient(circle at 20% 20%, rgba(65, 118, 139, 0.16), transparent 26%),
+		radial-gradient(circle at 78% 18%, rgba(112, 134, 148, 0.1), transparent 24%),
+		linear-gradient(180deg, #0a1118 0%, #090d12 38%, #070a0f 100%);
+	background-attachment: fixed;
 }
 
 :root[class~='dark'] body {
-	background-color: var(--color-ink-900);
-	color: var(--color-ink-200);
+	background-color: #090d12;
+	color: #d5dbe3;
 }
 
 /* Selection */
@@ -164,14 +169,14 @@ body {
 
 @utility shadow-jade-glow {
 	box-shadow:
-		0 10px 30px -10px rgba(20, 184, 166, 0.25),
-		inset 0 0 12px rgba(20, 184, 166, 0.05);
+		0 18px 48px -18px rgba(59, 130, 246, 0.22),
+		inset 0 0 18px rgba(148, 163, 184, 0.04);
 }
 
 @utility shadow-jade-glow-dark {
 	box-shadow:
-		0 10px 40px -12px rgba(0, 0, 0, 0.5),
-		inset 0 0 15px rgba(45, 212, 191, 0.08);
+		0 16px 52px -18px rgba(0, 0, 0, 0.62),
+		inset 0 0 24px rgba(125, 211, 252, 0.06);
 }
 
 @utility article-enter {

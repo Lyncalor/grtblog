@@ -101,7 +101,7 @@
 		>
 			<!-- Fluid Background -->
 			<div
-				class="absolute left-0 w-full bg-[#E9EEE8] dark:bg-jade-800/20 rounded-default pointer-events-none -z-10"
+				class="absolute left-0 w-full rounded-default pointer-events-none -z-10 archive-hover-panel"
 				style:top="{$hoverCoords.top}px"
 				style:height="{$hoverCoords.height}px"
 				style:opacity={$hoverOpacity}
@@ -143,3 +143,15 @@
 		</div>
 	{/if}
 </div>
+
+<style lang="postcss">
+	@reference "$routes/layout.css";
+
+	.archive-hover-panel {
+		background:
+			linear-gradient(180deg, rgba(13, 18, 25, 0.9), rgba(9, 13, 18, 0.96)),
+			radial-gradient(circle at left center, rgba(56, 189, 248, 0.16), transparent 40%);
+		border: 1px solid rgba(125, 211, 252, 0.1);
+		box-shadow: 0 18px 36px -24px rgba(0, 0, 0, 0.76);
+	}
+</style>

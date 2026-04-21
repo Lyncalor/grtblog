@@ -7,16 +7,18 @@
 	let { config }: { config?: HomeHeroThemeConfig } = $props();
 
 	const defaultTitleTemplate: HomeHeroTemplateNode[] = [
-		{ type: 'h1', text: 'Hi! 👋', variant: 'hero_h1_highlight' },
+		{ type: 'span', text: 'ARC // SIGNAL', variant: 'hero_meta' },
 		{ type: 'br' },
-		{ type: 'h1', text: "I'm grtsinry43", variant: 'hero_h1_primary' }
+		{ type: 'h1', text: '在终点之前', variant: 'hero_h1_highlight' },
+		{ type: 'br' },
+		{ type: 'h1', text: '继续记录与建造', variant: 'hero_h1_primary' }
 	];
 	const defaultDescription =
-		'Java & JavaScript full-stack developer committed to crafting excellent software.';
+		'以档案、日志与作品为索引，持续收束信息噪声，并为长期创作建立可回溯的结构。';
 	const defaultAvatarUrl = '';
 	const defaultMottoLines = [
-		'热衷于在逻辑与感性的缝隙中构建数字花园。',
-		'也许，代码是现代的诗歌，而文字是思想的快照。'
+		'并非为了制造喧哗，而是为了在混乱中保留坐标。',
+		'文字、代码、片段与思考，在这里重新编入同一条叙事链。'
 	];
 	const defaultSocials: HomeHeroSocialLink[] = [
 		{ icon: 'github', name: 'GitHub', href: 'https://github.com/grtinry43' },
@@ -25,14 +27,16 @@
 	];
 
 	const variantClassMap: Record<string, string> = {
-		hero_h1_highlight: 'italic text-jade-600 dark:text-jade-400 font-light text-4xl',
-		hero_h1_primary: 'text-ink-900 dark:text-ink-100 font-medium text-4xl',
-		hero_h1_light: 'font-light text-4xl text-ink-900 dark:text-ink-100',
-		hero_h1_medium_gap: 'font-medium mx-2 text-4xl text-ink-900 dark:text-ink-100',
+		hero_meta:
+			'text-[0.7rem] tracking-[0.45em] uppercase text-sky-300/70 font-mono inline-flex items-center gap-3 before:content-[""] before:w-8 before:h-px before:bg-sky-300/30',
+		hero_h1_highlight: 'text-slate-300 font-light text-4xl md:text-5xl tracking-[0.2em] uppercase',
+		hero_h1_primary: 'text-white font-medium text-4xl md:text-6xl tracking-[0.08em] uppercase',
+		hero_h1_light: 'font-light text-4xl text-white/90',
+		hero_h1_medium_gap: 'font-medium mx-2 text-4xl text-white/95',
 		hero_code_inline:
-			'font-medium mx-2 text-3xl rounded p-1 bg-gray-200 dark:bg-gray-800/0 hover:dark:bg-gray-800/100 bg-opacity-0 hover:bg-opacity-100 transition-colors duration-200',
+			'font-medium mx-2 text-3xl rounded px-2 py-1 border border-white/10 bg-white/[0.02] text-sky-100 transition-colors duration-200',
 		hero_cursor:
-			'inline-block w-[1px] h-8 -bottom-2 relative bg-gray-800/80 dark:bg-gray-200/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 animate-[hero-blink_1s_steps(1)_infinite]'
+			'inline-block w-[1px] h-8 -bottom-2 relative bg-sky-100/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 animate-[hero-blink_1s_steps(1)_infinite]'
 	};
 
 	const titleTemplate = $derived(
@@ -62,6 +66,10 @@
 <div
 	class="hero-container min-h-[calc(100svh-5rem)] md:min-h-[calc(100svh-8rem)] flex flex-col justify-center w-full"
 >
+	<div class="hero-grid-overlay" aria-hidden="true"></div>
+	<div class="hero-glow hero-glow-left" aria-hidden="true"></div>
+	<div class="hero-glow hero-glow-right" aria-hidden="true"></div>
+	<div class="hero-frame" aria-hidden="true"></div>
 	<!-- [Desktop Version] -->
 	<div class="hidden md:flex flex-col gap-20">
 		<div class="hero-info flex justify-center gap-36">
@@ -189,7 +197,48 @@
 	@reference "$routes/layout.css";
 
 	.hero-container {
-		@apply relative;
+		@apply relative overflow-hidden px-6 md:px-12;
+	}
+
+	.hero-grid-overlay {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+		background-size: 36px 36px;
+		mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 92%);
+		pointer-events: none;
+	}
+
+	.hero-frame {
+		position: absolute;
+		inset: 1.25rem;
+		border: 1px solid rgba(148, 163, 184, 0.1);
+		pointer-events: none;
+		clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+	}
+
+	.hero-glow {
+		position: absolute;
+		width: 28rem;
+		height: 28rem;
+		border-radius: 9999px;
+		filter: blur(90px);
+		opacity: 0.18;
+		pointer-events: none;
+	}
+
+	.hero-glow-left {
+		left: -8rem;
+		top: 20%;
+		background: rgba(56, 189, 248, 0.28);
+	}
+
+	.hero-glow-right {
+		right: -10rem;
+		bottom: 10%;
+		background: rgba(148, 163, 184, 0.18);
 	}
 
 	.hero-scroll-hint {

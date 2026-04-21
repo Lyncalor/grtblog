@@ -56,9 +56,28 @@
 </script>
 
 <div
-	class={`markdown-preview ${className}`.trim()}
+	class={`markdown-preview detail-markdown-shell ${className}`.trim()}
 	bind:this={contentRoot}
 	use:tocObserver={{ onActiveChange: handleActiveAnchorChange }}
 >
 	<MarkdownView {content} headingAnchors={flattenTOC(toc ?? [])} />
 </div>
+
+<style lang="postcss">
+	@reference "$routes/layout.css";
+
+	.detail-markdown-shell {
+		position: relative;
+	}
+
+	.detail-markdown-shell::before {
+		content: '';
+		position: absolute;
+		left: -1.25rem;
+		top: 0;
+		bottom: 0;
+		width: 1px;
+		background: linear-gradient(180deg, transparent, rgba(125, 211, 252, 0.3), transparent);
+		opacity: 0.7;
+	}
+</style>

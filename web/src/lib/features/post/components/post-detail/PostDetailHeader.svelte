@@ -46,7 +46,7 @@
 	<span>返回</span>
 {/snippet}
 
-<header class="max-w-4xl space-y-6">
+<header class="post-detail-header-shell max-w-4xl space-y-6 px-6 py-8 md:px-8 md:py-10">
 	<div class="flex items-center gap-4">
 		<Button
 			variant="ghost"
@@ -54,7 +54,7 @@
 			onclick={goBack}
 			content={backContent}
 		/>
-		<div class="h-px w-6 bg-ink-200/50 dark:bg-ink-800/50"></div>
+		<div class="h-px w-6 bg-slate-400/20"></div>
 	</div>
 
 	<div class="space-y-4">
@@ -63,26 +63,26 @@
 			{#if $categoryShortUrlStore}
 				<a
 					href={resolvePath(buildCategoryPath($categoryShortUrlStore))}
-					class="font-mono text-[9px] tracking-[0.3em] text-ink-400 uppercase hover:text-jade-600 dark:hover:text-jade-400 transition-colors"
+					class="font-mono text-[9px] tracking-[0.3em] text-sky-300/70 uppercase hover:text-sky-200 transition-colors"
 				>
 					{categoryLabelStore}
 				</a>
 			{:else}
-				<span class="font-mono text-[9px] tracking-[0.3em] text-ink-400 uppercase"
+				<span class="font-mono text-[9px] tracking-[0.3em] text-sky-300/70 uppercase"
 					>{categoryLabelStore}</span
 				>
 			{/if}
 		</div>
 
 		<h1
-			class="font-serif text-2xl leading-[1.2] font-medium tracking-tight text-ink-950 md:text-3xl lg:text-4xl dark:text-ink-50"
+			class="font-serif text-2xl leading-[1.2] font-medium tracking-[0.04em] text-white md:text-3xl lg:text-4xl"
 		>
 			{$titleStore}
 		</h1>
 
 		<div class="flex flex-col gap-4">
 			<div
-				class="flex flex-wrap items-center gap-5 font-mono text-[9px] tracking-widest text-ink-400 uppercase"
+				class="flex flex-wrap items-center gap-5 font-mono text-[9px] tracking-widest text-slate-400 uppercase"
 			>
 				{#if $isHotStore}
 					{#snippet hotIcon()}
@@ -125,3 +125,26 @@
 		</div>
 	</div>
 </header>
+
+<style lang="postcss">
+	@reference "$routes/layout.css";
+
+	.post-detail-header-shell {
+		border: 1px solid rgba(148, 163, 184, 0.12);
+		background:
+			linear-gradient(180deg, rgba(10, 16, 23, 0.88), rgba(7, 10, 15, 0.96)),
+			radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 34%);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.post-detail-header-shell::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background-image: linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+		background-size: 100% 24px;
+		opacity: 0.22;
+	}
+</style>

@@ -82,7 +82,7 @@
 		pointer-events: none;
 		background: radial-gradient(
 			240px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-			rgba(20, 184, 166, 0.14),
+			rgba(56, 189, 248, 0.16),
 			transparent 72%
 		);
 		transition: opacity 240ms ease;
@@ -100,9 +100,9 @@
 		background: linear-gradient(
 			180deg,
 			transparent,
-			rgba(20, 184, 166, 0.6),
-			rgba(20, 184, 166, 0.85),
-			rgba(20, 184, 166, 0.6),
+			rgba(125, 211, 252, 0.55),
+			rgba(125, 211, 252, 0.92),
+			rgba(125, 211, 252, 0.55),
 			transparent
 		);
 		transition: height 260ms ease;
@@ -146,11 +146,11 @@
 
 	.home-item-card:hover,
 	.home-item-card[data-hovered='true'] {
-		background: rgb(250 250 249 / 0.68);
-		border-color: rgb(41 37 36 / 0.08);
+		background: linear-gradient(180deg, rgba(16, 24, 33, 0.94), rgba(9, 13, 18, 0.98));
+		border-color: rgba(125, 211, 252, 0.18);
 		box-shadow:
-			0 2px 8px rgb(28 25 23 / 0.05),
-			0 1px 3px rgb(28 25 23 / 0.1);
+			0 16px 34px -24px rgba(56, 189, 248, 0.28),
+			0 18px 40px -24px rgba(0, 0, 0, 0.8);
 		backdrop-filter: blur(22px) saturate(132%);
 		transform: translateY(-1px);
 	}
@@ -167,14 +167,14 @@
 
 	.home-item-card:hover .home-item-title,
 	.home-item-card[data-hovered='true'] .home-item-title {
-		color: rgb(13 148 136 / 1);
+		color: rgb(186 230 253 / 1);
 	}
 
 	.home-item-card:hover .home-item-arrow,
 	.home-item-card[data-hovered='true'] .home-item-arrow {
 		transform: translateX(4px);
 		opacity: 0.8;
-		color: rgb(13 148 136 / 1);
+		color: rgb(125 211 252 / 1);
 	}
 
 	.home-item-card:hover .title-underline::after,
@@ -186,21 +186,21 @@
 	:global(.dark) .home-item-card::before {
 		background: radial-gradient(
 			240px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-			rgba(45, 212, 191, 0.18),
+			rgba(56, 189, 248, 0.2),
 			transparent 72%
 		);
 	}
 
 	:global(.dark) .home-item-card:hover,
 	:global(.dark) .home-item-card[data-hovered='true'] {
-		background: rgb(41 37 36 / 0.55);
-		border-color: rgb(231 229 228 / 0.12);
-		box-shadow: 0 10px 30px -12px rgb(0 0 0 / 0.45);
+		background: linear-gradient(180deg, rgba(16, 24, 33, 0.94), rgba(9, 13, 18, 0.98));
+		border-color: rgba(125, 211, 252, 0.18);
+		box-shadow: 0 18px 40px -20px rgb(0 0 0 / 0.72);
 	}
 
 	:global(.dark) .home-item-card:hover .home-item-title,
 	:global(.dark) .home-item-card[data-hovered='true'] .home-item-title {
-		color: rgb(94 234 212 / 1);
+		color: rgb(186 230 253 / 1);
 	}
 
 	:global(.dark) .home-item-arrow {
@@ -209,6 +209,6 @@
 
 	:global(.dark) .home-item-card:hover .home-item-arrow,
 	:global(.dark) .home-item-card[data-hovered='true'] .home-item-arrow {
-		color: rgb(45 212 191 / 1);
+		color: rgb(125 211 252 / 1);
 	}
 </style>

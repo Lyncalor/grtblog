@@ -16,9 +16,9 @@
 <aside class="hidden lg:block pt-24 h-full relative slide-in-right">
 	<div class="sticky top-24 space-y-10">
 		{#if toc.length > 0}
-			<div class="space-y-5">
+			<div class="detail-sidebar-panel detail-sidebar-panel-moment space-y-5">
 				<span
-					class="block border-b border-ink-800/10 pb-2 font-mono text-[8px] font-bold tracking-[0.4em] text-ink-400 uppercase"
+					class="block border-b border-slate-500/20 pb-2 font-mono text-[8px] font-bold tracking-[0.4em] text-pink-300/70 uppercase"
 				>
 					目录
 				</span>
@@ -29,3 +29,18 @@
 		<MomentDetailRelatedPosts />
 	</div>
 </aside>
+
+<style lang="postcss">
+	@reference "$routes/layout.css";
+
+	.detail-sidebar-panel {
+		border: 1px solid rgba(148, 163, 184, 0.12);
+		padding: 1rem;
+	}
+
+	.detail-sidebar-panel-moment {
+		background:
+			linear-gradient(180deg, rgba(10, 16, 23, 0.88), rgba(7, 10, 15, 0.96)),
+			radial-gradient(circle at top, rgba(244, 114, 182, 0.1), transparent 36%);
+	}
+</style>

@@ -37,6 +37,7 @@
 </script>
 
 <div class="w-full max-w-5xl mx-auto px-6 md:px-0 py-16">
+	<div class="moment-list-shell">
 	<PageHeader
 		title="手记"
 		tag="Moments"
@@ -67,4 +68,26 @@
 			<p>暂无手记</p>
 		</div>
 	{/if}
+	</div>
 </div>
+
+<style lang="postcss">
+	@reference "$routes/layout.css";
+
+	.moment-list-shell {
+		position: relative;
+	}
+
+	.moment-list-shell::before {
+		content: '';
+		position: absolute;
+		left: -1.5rem;
+		right: -1.5rem;
+		top: 8.5rem;
+		bottom: 0;
+		border: 1px solid rgba(148, 163, 184, 0.1);
+		background: linear-gradient(180deg, rgba(10, 16, 23, 0.28), rgba(8, 12, 18, 0.18));
+		pointer-events: none;
+		z-index: -1;
+	}
+</style>

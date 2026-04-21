@@ -19,22 +19,22 @@
 </script>
 
 <div
-	class="mb-8 overflow-hidden rounded-default border border-jade-500/20 bg-gradient-to-br from-jade-500/5 to-transparent p-4 shadow-sm transition-all dark:border-jade-500/10 dark:from-jade-500/10"
+	class="detail-ai-summary mb-8 overflow-hidden rounded-default p-4 transition-all"
 >
 	<div class="mb-3 flex items-center justify-between gap-2.5">
 		<div class="flex items-center gap-2">
 			<div
-				class="flex h-5 w-5 items-center justify-center rounded-md bg-jade-500/10 text-jade-700 dark:bg-jade-500/20 dark:text-jade-400"
+				class="flex h-5 w-5 items-center justify-center rounded-md bg-sky-400/10 text-sky-200"
 			>
 				<Sparkles size={12} strokeWidth={2.5} />
 			</div>
 			<span
-				class="font-mono text-[10px] font-bold tracking-widest text-jade-700 uppercase dark:text-jade-400"
+				class="font-mono text-[10px] font-bold tracking-widest text-sky-200 uppercase"
 				>AI 摘要</span
 			>
 		</div>
 		<button
-			class="flex cursor-pointer items-center gap-1 select-none text-[10px] font-medium text-jade-600/80 transition-colors hover:text-jade-600"
+			class="flex cursor-pointer items-center gap-1 select-none text-[10px] font-medium text-slate-300 transition-colors hover:text-sky-200"
 			onclick={() => (isExpanded = !isExpanded)}
 		>
 			{isExpanded ? '收起' : '展开'}
@@ -50,9 +50,21 @@
 	>
 		<div
 			bind:clientHeight={contentHeight}
-			class="markdown-preview max-w-none font-sans text-xs leading-relaxed text-ink-700 dark:text-ink-300 [&>p]:mb-1.5 [&>p]:last:mb-0"
+			class="markdown-preview max-w-none font-sans text-xs leading-relaxed text-slate-300 [&>p]:mb-1.5 [&>p]:last:mb-0"
 		>
 			<MarkdownView content={summary} />
 		</div>
 	</div>
 </div>
+
+<style lang="postcss">
+	@reference "$routes/layout.css";
+
+	.detail-ai-summary {
+		border: 1px solid rgba(148, 163, 184, 0.12);
+		background:
+			linear-gradient(180deg, rgba(10, 16, 23, 0.88), rgba(7, 10, 15, 0.96)),
+			radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 34%);
+		box-shadow: 0 20px 40px -28px rgba(0, 0, 0, 0.8);
+	}
+</style>
